@@ -1,0 +1,33 @@
+{
+  "name": "matrix-game",
+  "version": "0.0.0",
+  "description": "Realtime Game with Node.js, Express.js, Socket.io, MongoDB and more.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "realtime"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/castellbot/matrix-game.git"
+  },
+  "author": "Mario R. Castellanos A.",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.1",
+    "hbs": "^3.1.0",
+    "mongoose": "^4.0.8",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.0",
+    "less-middleware": "^2.0.1"
+  }
+}
