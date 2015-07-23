@@ -1,0 +1,29 @@
+{
+  "name": "matrix-game",
+  "version": "0.0.0",
+  "authors": [
+    "Mario R. Castellanos <mario502gt@gmail.com>"
+  ],
+  "description": "Realtime game with Node.js, Express.js, Socket.io, MongoDB and more.",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "realtime",
+    "game"
+  ],
+  "license": "MIT",
+  "homepage": "matrix.mariocaste.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}

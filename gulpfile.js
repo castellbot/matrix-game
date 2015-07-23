@@ -21,7 +21,7 @@ var lessFiles = [
 gulp.task('less', function() {
 	gulp.src(lessFiles)
 		.pipe(less())
-		.pipe(gulp.dest('./public/stylesheets'))
+		.pipe(gulp.dest('./public'))
 		.pipe(livereload());
 });
 
@@ -32,6 +32,7 @@ gulp.task('livereload', function() {
 
 gulp.task('default', function() {
 	livereload.listen({start: true});
-	gulp.watch(lessFiles, ['less']);
+	// gulp.watch(lessFiles, ['less']);
 	gulp.watch(hbsFiles, ['livereload']);
+	gulp.watch(lessFiles, ['livereload']);
 });
