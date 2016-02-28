@@ -1,7 +1,119 @@
-<h1>{{ title }}</h1>
-<p>{{ message }}</p>
-<form action="">
-	<p>Please enter your username</p>
-	<input type="text" name="username" id="id_username">
-	<input type="submit" value="Play">
-</form>
+<div class="row">
+	<div class="col-lg-12 text-center">
+		<h1>{{ title }}</h1>
+		<p>{{ message }}</p>		
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-9 text-center">
+		<div id="matrixwrapper" class="text-center">
+			
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="row text-center">
+			<div class="col-lg-12">
+				<span id="timer" class="label label-warning timer"></span>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-lg-12">
+				<img id="image" class="img-responsive img-rounded" src="{{image}}" alt="Picture">
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-lg-12">
+				{{# if user }}
+				<div class="panel panel-default" id="id_title_username">
+					<div class="panel-body">
+						<p class="title-2">
+							@{{ user.username }}
+							<span id="spanblocks" class="label label-default">{{user.blocks}}</span>
+						</p>
+						<input type="hidden" value="{{user.sessionid}}" id="sessionid">
+						<input type="hidden" value="{{user.blocks}}" id="blocks">
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p class="title-2">
+							Select color:
+						</p>
+					</div>
+					<div class="panel-body">
+						<!--<select class="form-control" name="color" id="id_color">
+							<option value="red">Red</option>
+							<option value="blue">Blue</option>
+							<option value="yellow">Yellow</option>
+							<option value="white">White</option>
+							<option value="black">Black</option>
+						</select>-->
+						<!--<button onclick="setColor(this);" data-toggle="button" class="btn btn-default team-green"><i class="fa fa-automobile"></i></button>
+						<button onclick="setColor(this);" data-toggle="button" class="btn btn-default team-purple"><i class="fa fa-beer"></i></button>
+						<button onclick="setColor(this);" data-toggle="button" class="btn btn-default team-yellow"><i class="fa fa-bomb"></i></button>
+						<button onclick="setColor(this);" data-toggle="button" class="btn btn-default team-blue"><i class="fa fa-bug"></i></button>
+						<button onclick="setColor(this);" data-toggle="button" class="btn btn-default team-red"><i class="fa fa-futbol-o"></i></button>-->
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-default team-green" onclick="setColor('darkcyan');">
+								<input type="radio" name="options" id="option1" autocomplete="off"><i class="fa fa-automobile"></i>
+							</label>
+							<label class="btn btn-default team-purple" onclick="setColor('mediumpurple');">
+								<input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-beer"></i>
+							</label>
+							<label class="btn btn-default team-yellow" onclick="setColor('gold');">
+								<input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-bomb"></i>
+							</label>
+							<label class="btn btn-default team-blue" onclick="setColor('lightskyblue');">
+								<input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-bug"></i>
+							</label>
+							<label class="btn btn-default team-red" onclick="setColor('orangered');">
+								<input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-futbol-o"></i>
+							</label>
+						</div>
+						<input type="hidden" value="" id="id_color">
+					</div>
+				</div>
+				{{ else }}
+				<p>
+					<a class="btn btn-primary" href="#myModal" data-toggle="modal" data-target="#myModal">
+						<i class="fa fa-gamepad"></i> Play
+					</a>
+				</p>
+				<!--<script>$('#myModal').modal('show');</script>-->
+				{{/if}}
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-lg-12">
+				<ul class="list-group text-left" id="usersList">
+					{{#each users }}
+						<li class="list-group-item">@{{this.username}}<span class="badge">{{this.score}}</span></li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{{# if user }}
+{{else}}
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="form-signin" method="post" action="/login">
+			<h2 class="form-signin-heading">Enter your username</h2>
+			<label for="id_username" class="sr-only">Username</label>
+			<input type="text" id="id_username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+			<!--<label for="id_password" class="sr-only">Password</label>
+			<input type="password" id="id_password" name="password" class="form-control" placeholder="Password" required="">-->
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Play!</button>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}

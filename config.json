@@ -4,5 +4,6 @@
 		"name": "matrixgame",
 		"host": "localhost",
 		"port": 27017
-	}
+	},
+	"sessionExpire": 1200000
 }
